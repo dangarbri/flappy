@@ -12,3 +12,4 @@
 #define GROUND_LOOP_POINT 413
 
 #define GRAVITY 10
+#define JUMP_VELOCITY 5

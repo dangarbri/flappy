@@ -9,6 +9,7 @@ Bird::Bird()
   mSprite = Sprite::create("bird.png");
   setContentSize(mSprite->getContentSize());
   _setInitialPosition();
+  _initializeKeyboardListener();
   addChild(mSprite);
   scheduleUpdate();
 }
@@ -35,3 +36,22 @@ void Bird::_updateFallingVelocity(float dt)
   setPositionY(y + mVelocity);
 }
 
+void Bird::_initializeKeyboardListener()
+{
+    mListener = EventListenerKeyboard::create();
+    mListener->onKeyPressed = CC_CALLBACK_2(Bird::_onKeyPressed, this);
+    getEventDispatcher()->addEventListenerWithSceneGraphPriority(mListener, this);
+}
+
+void Bird::_onKeyPressed(cocos2d::EventKeyboard::KeyCode key, cocos2d::Event* event)
+{
+  if (key == EventKeyboard::KeyCode::KEY_SPACE)
+  {
+    _jump();
+  }
+}
+
+void Bird::_jump()
+{
+  mVelocity = JUMP_VELOCITY;
+}
