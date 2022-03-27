@@ -43,7 +43,14 @@ bool HelloWorld::init()
     }
 
     mBackground = Sprite::create("background.png");
+    mBackground->setAnchorPoint(Vec2{0, 0});
+    mBackground->getTexture()->setAliasTexParameters();
     mGround = Sprite::create("ground.png");
+    mGround->setAnchorPoint(Vec2{0, 0});
+    mGround->getTexture()->setAliasTexParameters();
+
+    this->addChild(mBackground);
+    this->addChild(mGround);
 
     this->addComponent(new ExitOnEscape());
     printf("Does printf even show?\n");
