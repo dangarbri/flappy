@@ -37,9 +37,14 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 
+    void update(float dt);
+
 private:
   cocos2d::Sprite* mBackground;
   cocos2d::Sprite* mGround;
+
+  float mBgScroll = 0;
+  float mFloorScroll = 0;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

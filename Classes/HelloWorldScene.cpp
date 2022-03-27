@@ -24,6 +24,7 @@
 
 #include "HelloWorldScene.h"
 #include "Modules/ExitOnEscape.hpp"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -53,8 +54,31 @@ bool HelloWorld::init()
     this->addChild(mGround);
 
     this->addComponent(new ExitOnEscape());
-    printf("Does printf even show?\n");
+    scheduleUpdate();
 
     return true;
 }
 
+void HelloWorld::update(float dt)
+{
+  // Run parent update function
+  Scene::update(dt);
+  mBgScroll = (mBgScroll + BACKGROUND_SCROLL_SPEED * dt);
+  mFloorScroll = (mFloorScroll + GROUND_SCROLL_SPEED * dt);
+
+  // Update sprite positions
+  mBackground->setPositionX(-mBgScroll);
+  mGround->setPositionX(-mFloorScroll);
+
+  // Determine if sprites should wrap back to the right
+  if (mBgScroll >= BACKGROUND_LOOP_POINT)
+  {
+    mBgScroll = 0;
+    printf("bg wrapped\n");
+  }
+  if (mFloorScroll >= DESIGN_WIDTH)
+  {
+    mFloorScroll = 0;
+    printf("floor wrapped\n");
+  }
+}
