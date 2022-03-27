@@ -56,7 +56,7 @@ bool HelloWorld::init()
     this->addChild(mBackground, 0);
     this->addChild(mGround, 50);
     this->addChild(mBird, 100);
-    this->addChild(new Pipe(), 75);
+    this->addChild(new Pipe(), 25);
 
     this->addComponent(new ExitOnEscape());
     this->addComponent(mTimer);

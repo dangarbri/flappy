@@ -16,7 +16,7 @@ Pipe::Pipe()
   mSprite->setAnchorPoint(Vec2{0, 0});
   setAnchorPoint(Vec2{0, 1.0});
   setPositionX(DESIGN_WIDTH);
-  setPositionY(random<float>(DESIGN_HEIGHT / 4, 32));
+  setPositionY(random<float>(32, DESIGN_HEIGHT / 2));
 
   // Make sure update gets called
   scheduleUpdate();
