@@ -1,9 +1,10 @@
 #include "PipePair.h"
 #include <cassert>
 
-PipePair::PipePair()
+PipePair::PipePair(float yPos)
 {
     pipes[0] = new Pipe();
+    pipes[0]->setPositionY(yPos);
     pipes[1] = new Pipe();
     _positionTopPipe();
     addChild(pipes[0], 0);

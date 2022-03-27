@@ -45,6 +45,7 @@ bool HelloWorld::init()
         return false;
     }
 
+    mNextPipeY = random<float>(32, DESIGN_HEIGHT / 2);
     mTimer = new ElapsedTime();
     mBird = new Bird();
     mBackground = Sprite::create("background.png");
@@ -89,7 +90,9 @@ void HelloWorld::update(float dt)
   float elapsedTime = mTimer->getElapsedTime();
   if (elapsedTime > PIPE_SPAWN_DELAY_S)
   {
-    addChild(new PipePair(), 25);
+    addChild(new PipePair(mNextPipeY), 25);
+    mNextPipeY = mNextPipeY + random<float>(-20, 20);
+    mNextPipeY = clampf(mNextPipeY, 32, DESIGN_HEIGHT - 90);
     mTimer->resetTimer();
   }
 }

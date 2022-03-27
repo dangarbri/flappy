@@ -50,6 +50,7 @@ private:
 
   float mBgScroll = 0;
   float mFloorScroll = 0;
+  float mNextPipeY = 0;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -13,10 +13,9 @@ Pipe::Pipe()
   addChild(mSprite);
 
   // Set initial position
-  mSprite->setAnchorPoint(Vec2{0, 0});
-  setAnchorPoint(Vec2{0, 1.0});
+  mSprite->setAnchorPoint(Vec2{0, 1.0f});
+  setAnchorPoint(Vec2{0.0f, 0.0});
   setPositionX(DESIGN_WIDTH);
-  setPositionY(random<float>(32, DESIGN_HEIGHT / 2));
 
   // Make sure update gets called
   scheduleUpdate();
@@ -46,6 +45,7 @@ void Pipe::_destroyIfOffScreen()
 void Pipe::setAsTopPipe(Vec2 bottomPipePosition)
 {
   mSprite->setFlippedY(true);
-  setAnchorPoint(Vec2{0, 0});
+  mSprite->setAnchorPoint(Vec2{0, 0});
   float y = bottomPipePosition.y + PIPE_SPACING;
+  setPositionY(y);
 }

@@ -4,7 +4,7 @@
 class PipePair : public cocos2d::Node
 {
 public:
-  PipePair();
+  PipePair(float yPos);
 
 private:
   Pipe* pipes[2];
