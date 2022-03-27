@@ -62,6 +62,7 @@ list(APPEND GAME_SOURCE
      Classes/Modules/ElapsedTime.cpp
      Classes/Bird.cpp
      Classes/Pipe.cpp
+     Classes/PipePair.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -70,6 +71,7 @@ list(APPEND GAME_HEADER
      Classes/Modules/ElapsedTime.h
      Classes/Bird.h
      Classes/Pipe.h
+     Classes/PipePair.h
      )
 
 if(ANDROID)

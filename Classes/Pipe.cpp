@@ -43,3 +43,9 @@ void Pipe::_destroyIfOffScreen()
   }
 }
 
+void Pipe::setAsTopPipe(Vec2 bottomPipePosition)
+{
+  mSprite->setFlippedY(true);
+  setAnchorPoint(Vec2{0, 0});
+  float y = bottomPipePosition.y + PIPE_SPACING;
+}

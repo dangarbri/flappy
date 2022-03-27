@@ -27,7 +27,6 @@
 
 #include "cocos2d.h"
 #include "Bird.h"
-#include "Pipe.h"
 #include "Modules/ElapsedTime.h"
 #include <vector>
 

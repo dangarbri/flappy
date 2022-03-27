@@ -4,6 +4,7 @@ class Pipe : public cocos2d::Node
 {
 public:
   Pipe();
+  void setAsTopPipe(cocos2d::Vec2 bottomPipePosition);
 
 private:
   cocos2d::Sprite* mSprite;
