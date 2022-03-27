@@ -43,6 +43,7 @@ bool HelloWorld::init()
         return false;
     }
 
+    mBird = new Bird();
     mBackground = Sprite::create("background.png");
     mBackground->setAnchorPoint(Vec2{0, 0});
     mBackground->getTexture()->setAliasTexParameters();
@@ -50,8 +51,9 @@ bool HelloWorld::init()
     mGround->setAnchorPoint(Vec2{0, 0});
     mGround->getTexture()->setAliasTexParameters();
 
-    this->addChild(mBackground);
-    this->addChild(mGround);
+    this->addChild(mBackground, 0);
+    this->addChild(mGround, 50);
+    this->addChild(mBird, 100);
 
     this->addComponent(new ExitOnEscape());
     scheduleUpdate();
@@ -74,11 +76,9 @@ void HelloWorld::update(float dt)
   if (mBgScroll >= BACKGROUND_LOOP_POINT)
   {
     mBgScroll = 0;
-    printf("bg wrapped\n");
   }
   if (mFloorScroll >= DESIGN_WIDTH)
   {
     mFloorScroll = 0;
-    printf("floor wrapped\n");
   }
 }

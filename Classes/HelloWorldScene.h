@@ -26,6 +26,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "Bird.h"
 
 class HelloWorld : public cocos2d::Scene
 {
@@ -42,6 +43,7 @@ public:
 private:
   cocos2d::Sprite* mBackground;
   cocos2d::Sprite* mGround;
+  Bird* mBird;
 
   float mBgScroll = 0;
   float mFloorScroll = 0;
