@@ -25,6 +25,7 @@
 #include "HelloWorldScene.h"
 #include "Modules/ExitOnEscape.hpp"
 #include "Constants.h"
+#include <cmath>
 
 USING_NS_CC;
 
@@ -55,7 +56,7 @@ bool HelloWorld::init()
     this->addChild(mBackground, 0);
     this->addChild(mGround, 50);
     this->addChild(mBird, 100);
-    this->addChild(new Pipe());
+    this->addChild(new Pipe(), 75);
 
     this->addComponent(new ExitOnEscape());
     this->addComponent(mTimer);
@@ -85,5 +86,10 @@ void HelloWorld::update(float dt)
     mFloorScroll = 0;
   }
 
-  printf("Elased time: %f\n", mTimer->getElapsedTime());
+  float elapsedTime = mTimer->getElapsedTime();
+  if (elapsedTime > PIPE_SPAWN_DELAY_S)
+  {
+    addChild(new Pipe());
+    mTimer->resetTimer();
+  }
 }

@@ -5,6 +5,7 @@ class ElapsedTime : public cocos2d::Component
 public:
   ElapsedTime();
   float getElapsedTime();
+  void resetTimer();
 
 private:
   float mElapsedTime = 0;

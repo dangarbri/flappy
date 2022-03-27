@@ -4,7 +4,7 @@ ElapsedTime::ElapsedTime()
 {
   autorelease();
   setName("ElapsedTime");
-  mElapsedTime = 0;
+  resetTimer();
 }
 
 void ElapsedTime::update(float dt)
@@ -15,4 +15,9 @@ void ElapsedTime::update(float dt)
 float ElapsedTime::getElapsedTime()
 {
   return mElapsedTime;
+}
+
+void ElapsedTime::resetTimer()
+{
+  mElapsedTime = 0;
 }

@@ -4,10 +4,10 @@ class Pipe : public cocos2d::Node
 {
 public:
   Pipe();
-  ~Pipe();
 
 private:
-  void update(float dt);
-
   cocos2d::Sprite* mSprite;
+
+  void _destroyIfOffScreen();
+  void update(float dt);
 };

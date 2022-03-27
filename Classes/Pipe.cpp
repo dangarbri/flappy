@@ -16,7 +16,7 @@ Pipe::Pipe()
   mSprite->setAnchorPoint(Vec2{0, 0});
   setAnchorPoint(Vec2{0, 1.0});
   setPositionX(DESIGN_WIDTH);
-  setPositionY(random<float>(DESIGN_HEIGHT / 4, 10));
+  setPositionY(random<float>(DESIGN_HEIGHT / 4, 32));
 
   // Make sure update gets called
   scheduleUpdate();
@@ -29,9 +29,17 @@ void Pipe::update(float dt)
   float x = getPositionX();
   x += PIPE_SCROLL * dt;
   setPositionX(x);
+
+  _destroyIfOffScreen();
 }
 
-Pipe::~Pipe()
+void Pipe::_destroyIfOffScreen()
 {
-  puts("Pipe destroyed");
+  float x = getPositionX();
+  Size size = getContentSize();
+  if ((x + size.width) < 0)
+  {
+    this->removeFromParentAndCleanup(true);
+  }
 }
+
