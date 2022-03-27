@@ -59,7 +59,10 @@ bool HelloWorld::init()
     this->addChild(mGround, 50);
     this->addChild(mBird, 100);
 
-    this->addComponent(new ExitOnEscape());
+    mUnpausable = Node::create();
+    mUnpausable->setName("nopause");
+    mUnpausable->addComponent(new ExitOnEscape());
+    this->addChild(mUnpausable);
     this->addComponent(mTimer);
     scheduleUpdate();
 
@@ -94,5 +97,36 @@ void HelloWorld::update(float dt)
     mNextPipeY = mNextPipeY + random<float>(-20, 20);
     mNextPipeY = clampf(mNextPipeY, 32, DESIGN_HEIGHT - 90);
     mTimer->resetTimer();
+  }
+
+  CheckHandleCollision();
+}
+
+void HelloWorld::CheckHandleCollision()
+{
+  Vector<Node*> nodes = this->getChildren();
+  for (Node* node : nodes)
+  {
+    if (node->getName() == "pipe pair")
+    {
+      PipePair* pair = dynamic_cast<PipePair*>(node);
+      if (mBird->collides(pair))
+      {
+        this->pause();
+      }
+    }
+  }
+}
+
+void HelloWorld::pause()
+{
+  Scene::pause();
+  Vector<Node*> children = this->getChildren();
+  for (Node* child : children)
+  {
+    if (child->getName() != "nopause")
+    {
+      child->pause();
+    }
   }
 }

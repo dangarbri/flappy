@@ -1,3 +1,4 @@
+#pragma once
 #include "cocos2d.h"
 
 class Pipe : public cocos2d::Node

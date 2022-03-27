@@ -41,16 +41,20 @@ public:
     CREATE_FUNC(HelloWorld);
 
     void update(float dt);
+    void pause();
 
 private:
   cocos2d::Sprite* mBackground;
   cocos2d::Sprite* mGround;
+  cocos2d::Node* mUnpausable;
   Bird* mBird;
   ElapsedTime* mTimer;
 
   float mBgScroll = 0;
   float mFloorScroll = 0;
   float mNextPipeY = 0;
+
+  void CheckHandleCollision();
 };
 
 #endif // __HELLOWORLD_SCENE_H__

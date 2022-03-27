@@ -1,9 +1,12 @@
+#pragma once
 #include "cocos2d.h"
+#include "PipePair.h"
 
 class Bird : public cocos2d::Node
 {
 public:
   Bird();
+  bool collides(PipePair* pipePair);
 
 private:
   cocos2d::Sprite* mSprite;

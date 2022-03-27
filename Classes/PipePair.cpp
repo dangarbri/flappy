@@ -3,6 +3,7 @@
 
 PipePair::PipePair(float yPos)
 {
+    setName("pipe pair");
     pipes[0] = new Pipe();
     pipes[0]->setPositionY(yPos);
     pipes[1] = new Pipe();
@@ -26,3 +27,11 @@ void PipePair::_positionTopPipe()
   Pipe* topPipe = pipes[1];
   topPipe->setAsTopPipe(pipes[0]->getPosition());
 }
+
+void PipePair::pause()
+{
+  Node::pause();
+  pipes[0]->pause();
+  pipes[1]->pause();
+}
+

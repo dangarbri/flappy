@@ -1,5 +1,6 @@
 #include "Bird.h"
 #include "Constants.h"
+#include "Modules/ShowAnchorPoint.h"
 
 USING_NS_CC;
 
@@ -13,6 +14,8 @@ Bird::Bird()
   _initializeKeyboardListener();
   addChild(mSprite);
   scheduleUpdate();
+
+  this->addComponent(new ShowAnchorPoint());
 }
 
 void Bird::update(float dt)
@@ -55,4 +58,14 @@ void Bird::_onKeyPressed(cocos2d::EventKeyboard::KeyCode key, cocos2d::Event* ev
 void Bird::_jump()
 {
   mVelocity = JUMP_VELOCITY;
+}
+
+bool Bird::collides(PipePair *pipePair)
+{
+  Pipe* bottom = pipePair->getPipe(0);
+  Pipe* top = pipePair->getPipe(1);
+  Rect bbox = this->getBoundingBox();
+  // Return true if the bird intersects either pipe
+  return bbox.intersectsRect(bottom->getBoundingBox()) ||
+         bbox.intersectsRect(top->getBoundingBox());
 }

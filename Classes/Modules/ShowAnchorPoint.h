@@ -1,3 +1,4 @@
+#pragma once
 /**
  * This class when attached to a node will render a small
  * white dot at the node's specified position in the scene.
@@ -20,4 +21,6 @@ private:
   cocos2d::DrawNode* surface;
   void onEnter();
   void drawRectOnSurface();
+  void update(float dt);
+  void updatePosition();
 };
