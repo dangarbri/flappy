@@ -6,9 +6,11 @@ public:
   Bird();
 
 private:
+  cocos2d::Sprite* mSprite;
+  float mVelocity = 0;
+
   void update(float dt);
 
   void _setInitialPosition();
-
-  cocos2d::Sprite* mSprite;
+  void _updateFallingVelocity(float dt);
 };

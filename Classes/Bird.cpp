@@ -10,11 +10,13 @@ Bird::Bird()
   setContentSize(mSprite->getContentSize());
   _setInitialPosition();
   addChild(mSprite);
+  scheduleUpdate();
 }
 
 void Bird::update(float dt)
 {
   Node::update(dt);
+  _updateFallingVelocity(dt);
 }
 
 void Bird::_setInitialPosition()
@@ -23,5 +25,13 @@ void Bird::_setInitialPosition()
   float x = DESIGN_WIDTH / 2;
   float y = DESIGN_HEIGHT / 2;
   setPosition(Vec2{x, y});
+}
+
+void Bird::_updateFallingVelocity(float dt)
+{
+  mVelocity = mVelocity - GRAVITY * dt;
+
+  float y = getPositionY();
+  setPositionY(y + mVelocity);
 }
 
