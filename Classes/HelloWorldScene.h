@@ -27,6 +27,9 @@
 
 #include "cocos2d.h"
 #include "Bird.h"
+#include "Pipe.h"
+#include "Modules/ElapsedTime.h"
+#include <vector>
 
 class HelloWorld : public cocos2d::Scene
 {
@@ -44,6 +47,7 @@ private:
   cocos2d::Sprite* mBackground;
   cocos2d::Sprite* mGround;
   Bird* mBird;
+  ElapsedTime* mTimer;
 
   float mBgScroll = 0;
   float mFloorScroll = 0;

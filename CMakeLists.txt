@@ -59,13 +59,17 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
      Classes/Modules/ExitOnEscape.cpp
+     Classes/Modules/ElapsedTime.cpp
      Classes/Bird.cpp
+     Classes/Pipe.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
      Classes/Modules/ExitOnEscape.hpp
+     Classes/Modules/ElapsedTime.h
      Classes/Bird.h
+     Classes/Pipe.h
      )
 
 if(ANDROID)

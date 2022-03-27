@@ -13,3 +13,5 @@
 
 #define GRAVITY 10
 #define JUMP_VELOCITY 5
+
+#define PIPE_SCROLL (-GROUND_SCROLL_SPEED)

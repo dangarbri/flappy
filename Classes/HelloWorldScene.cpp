@@ -43,6 +43,7 @@ bool HelloWorld::init()
         return false;
     }
 
+    mTimer = new ElapsedTime();
     mBird = new Bird();
     mBackground = Sprite::create("background.png");
     mBackground->setAnchorPoint(Vec2{0, 0});
@@ -54,8 +55,10 @@ bool HelloWorld::init()
     this->addChild(mBackground, 0);
     this->addChild(mGround, 50);
     this->addChild(mBird, 100);
+    this->addChild(new Pipe());
 
     this->addComponent(new ExitOnEscape());
+    this->addComponent(mTimer);
     scheduleUpdate();
 
     return true;
@@ -81,4 +84,6 @@ void HelloWorld::update(float dt)
   {
     mFloorScroll = 0;
   }
+
+  printf("Elased time: %f\n", mTimer->getElapsedTime());
 }

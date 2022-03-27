@@ -7,6 +7,7 @@ Bird::Bird()
 {
   autorelease();
   mSprite = Sprite::create("bird.png");
+  mSprite->getTexture()->setAliasTexParameters();
   setContentSize(mSprite->getContentSize());
   _setInitialPosition();
   _initializeKeyboardListener();
