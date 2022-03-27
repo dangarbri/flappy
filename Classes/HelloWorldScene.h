@@ -34,11 +34,12 @@ public:
 
     virtual bool init();
     
-    // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
-    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+private:
+  cocos2d::Sprite* mBackground;
+  cocos2d::Sprite* mGround;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

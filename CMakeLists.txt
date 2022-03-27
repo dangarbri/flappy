@@ -58,10 +58,12 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
+     Classes/Modules/ExitOnEscape.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/Modules/ExitOnEscape.hpp
      )
 
 if(ANDROID)
