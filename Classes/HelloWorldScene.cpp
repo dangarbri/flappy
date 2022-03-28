@@ -72,7 +72,6 @@ bool HelloWorld::init()
 void HelloWorld::update(float dt)
 {
   // Run parent update function
-  Scene::update(dt);
   mBgScroll = (mBgScroll + BACKGROUND_SCROLL_SPEED * dt);
   mFloorScroll = (mFloorScroll + GROUND_SCROLL_SPEED * dt);
 
@@ -100,6 +99,8 @@ void HelloWorld::update(float dt)
   }
 
   CheckHandleCollision();
+
+  Scene::update(dt);
 }
 
 void HelloWorld::CheckHandleCollision()

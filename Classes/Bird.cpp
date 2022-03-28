@@ -1,6 +1,5 @@
 #include "Bird.h"
 #include "Constants.h"
-#include "Modules/ShowAnchorPoint.h"
 
 USING_NS_CC;
 
@@ -12,10 +11,10 @@ Bird::Bird()
   setContentSize(mSprite->getContentSize());
   _setInitialPosition();
   _initializeKeyboardListener();
+  mSprite->setAnchorPoint(Vec2{0, 0});
   addChild(mSprite);
-  scheduleUpdate();
 
-  this->addComponent(new ShowAnchorPoint());
+  scheduleUpdate();
 }
 
 void Bird::update(float dt)
@@ -30,6 +29,7 @@ void Bird::_setInitialPosition()
   float x = DESIGN_WIDTH / 2;
   float y = DESIGN_HEIGHT / 2;
   setPosition(Vec2{x, y});
+  setAnchorPoint(Vec2{0.5f, 0.5f});
 }
 
 void Bird::_updateFallingVelocity(float dt)

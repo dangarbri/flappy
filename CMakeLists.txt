@@ -61,6 +61,7 @@ list(APPEND GAME_SOURCE
      Classes/Modules/ExitOnEscape.cpp
      Classes/Modules/ElapsedTime.cpp
      Classes/Modules/ShowAnchorPoint.cpp
+     Classes/Modules/ShowBoundingBox.cpp
      Classes/Bird.cpp
      Classes/Pipe.cpp
      Classes/PipePair.cpp
@@ -71,6 +72,7 @@ list(APPEND GAME_HEADER
      Classes/Modules/ExitOnEscape.hpp
      Classes/Modules/ElapsedTime.h
      Classes/Modules/ShowAnchorPoint.h
+     Classes/Modules/ShowBoundingBox.h
      Classes/Bird.h
      Classes/Pipe.h
      Classes/PipePair.h
