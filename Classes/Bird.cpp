@@ -65,6 +65,13 @@ bool Bird::collides(PipePair *pipePair)
   Pipe* bottom = pipePair->getPipe(0);
   Pipe* top = pipePair->getPipe(1);
   Rect bbox = this->getBoundingBox();
+  // Shrink the bird's bounding box a little bit for
+  // collision detection purposes. Gives the user some
+  // room to "scrape" the pipes.
+  bbox.origin.x += 4;
+  bbox.origin.y += 4;
+  bbox.size.width -= 8;
+  bbox.size.height -= 8;
   // Return true if the bird intersects either pipe
   return bbox.intersectsRect(bottom->getBoundingBox()) ||
          bbox.intersectsRect(top->getBoundingBox());
